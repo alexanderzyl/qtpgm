@@ -1,3 +1,5 @@
+pgmpy
+pyside6
 numpy
 pandas
 matplotlib
