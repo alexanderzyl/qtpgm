@@ -1,11 +1,12 @@
-from pgmpy.models import MarkovModel
-from pgmpy.factors.discrete import DiscreteFactor
 import numpy as np
+from pgmpy.factors.discrete import DiscreteFactor
+from pgmpy.models import MarkovNetwork
+from typing import List
 
 
-def info_matrix_2_markov_net(info_matrix, titles, threshold=0.0):
+def info_matrix_2_markov_net(info_matrix: np.ndarray, titles: List[str], threshold: float = 0.0) -> MarkovNetwork:
     # Create the Markov Model
-    model = MarkovModel()
+    model = MarkovNetwork()
 
     # Create the nodes
     for i in range(info_matrix.shape[0]):
@@ -22,6 +23,6 @@ def info_matrix_2_markov_net(info_matrix, titles, threshold=0.0):
                 model.add_factors(factor)
 
     # Check the model
-    print(model.check_model())
+    # print(model.check_model())
 
     return model
