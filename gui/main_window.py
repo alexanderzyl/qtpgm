@@ -1,5 +1,5 @@
 import networkx as nx
-from gui.layout import GuiLayout
+from gui.layout import GuiLayout, NetTypeIndex
 
 from networkx import Graph
 from typing import Any
@@ -19,14 +19,20 @@ class MainWindow(GuiLayout):
         # edge_labels = nx.get_edge_attributes(G, 'weight')
         # nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
 
-        nx.draw_networkx_labels(G, pos, font_size=5, font_color='black', font_weight='bold', ax=ax, )
+        nx.draw_networkx_labels(G, pos, font_size=10, font_color='black', font_weight='bold', ax=ax, )
 
-    def draw_graph(self, mn: Any) -> None:
-        G: Graph = nx.Graph()
-        G.add_nodes_from(mn.nodes())
-        G.add_edges_from(mn.edges())
+    def draw_graph(self, mn: Any, net_type: NetTypeIndex) -> None:
+        if net_type == NetTypeIndex.MARKOV_NET:
+            graph: Graph = nx.Graph()
+        else:
+            graph: Graph = nx.DiGraph()
+        graph.add_nodes_from(mn.nodes())
+        graph.add_edges_from(mn.edges())
 
         self.figure.clear()
-        self._draw_graph(G, self.figure.add_subplot(111))
-        # nx.draw(G, with_labels=True, font_weight='bold', ax=self.figure.add_subplot(111))
+        self._draw_graph(graph, self.figure.add_subplot(111))
+        # nx.draw(graph, with_labels=True, font_weight='bold', ax=self.figure.add_subplot(111))
         self.canvas.draw()
+
+    def get_scoring_method(self):
+        return self.scoring_method.currentText()

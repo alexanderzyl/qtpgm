@@ -5,7 +5,7 @@ import matplotlib
 
 from gui.controller import GuiController
 from gui.main_window import MainWindow
-from models.life_exp import LifeExpModel
+from models.csv import CsvDataModel
 
 matplotlib.use('QtAgg')
 
@@ -15,8 +15,10 @@ from PySide6.QtWidgets import QApplication
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
+    data_file = sys.argv[1]
+
     window = MainWindow()
-    model = LifeExpModel(data_file='/Users/aliaksandrzyl/Desktop/projects/qtpgm/data/life expectancy.csv')
+    model = CsvDataModel(csv_file_path=data_file)
     controller = GuiController(window, model)
 
     window.show()
