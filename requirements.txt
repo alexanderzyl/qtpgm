@@ -1,1 +1,8 @@
+pgmpy
+pyside6
+numpy
 pandas
+matplotlib
+scipy
+pyqt6
+networkx
