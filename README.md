@@ -23,7 +23,7 @@ I'm also employing a relatively new statistical method to an old problem of find
 3. Install the requirements by running `pip install -r requirements.txt`
 4. python main.py ../data/life_expectancy.csv
 
-## What do we do:
+## What We Do:
 When we run the application with the life_expectancy.csv, we are loading the world bank data
 on various parameters collected for different countries - effectively just a big data table.
 We are trying to reconstruct the casual relationships between the parameters.
