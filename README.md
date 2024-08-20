@@ -61,6 +61,6 @@ and provides a variety of algorithms for learning the structure of the network f
 
 Literature:
 - Koller, Daphne, and Nir Friedman. Probabilistic graphical models: principles and techniques. MIT press, 2009.
-- Pearl, Judea. Causality. Cambridge university press, 2009.
+- Pearl, Judea. The book of why: The new science of cause and effect. Basic Books, 2018.
 - Murphy, Kevin P. Probabilistic machine learning: an introduction. MIT press, 2022.
 
